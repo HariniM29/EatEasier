@@ -40,7 +40,7 @@ app.get('/api/categories', (req, res) => {
 
 
 app.get('/api/products', async (req, res) => {
-  
+  console.log('hi)
   const { category } = req.query;
   const products = await Product.find(category ? { category } : {});
   res.send(products);
