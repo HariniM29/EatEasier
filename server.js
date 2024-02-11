@@ -14,7 +14,9 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin: 'https://eat-easier-6f4m.vercel.app',
+}));
 mongoose.connect('mongodb+srv://yuvaraj0313:nlPvjLZbt8gY42OX@cartyy.mpvbcai.mongodb.net/foodapp', {
   useNewUrlParser: true,
   useCreateIndex: true,
