@@ -14,7 +14,7 @@ export default function HomeScreen(props) {
               A Better Way!
             </Typography>
             <Typography variant="h1" component="h1" className={styles.bold}>
-              Eat <br />
+              Et <br />
              
               Easier
             </Typography>
