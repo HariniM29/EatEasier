@@ -22,6 +22,7 @@ import {
   ORDER_LIST_SUCCESS,
   ORDER_LIST_FAIL,
 } from './constants';
+const baseURL = 'https://eat-easier-6f4m.vercel.app';
 const initialState = {
   widthScreen: false,
   orderList: { loading: true },
@@ -124,7 +125,7 @@ export const listCategories = async (dispatch) => {
 
   try {
     
-    const { data } = await Axios.get('/api/categories');
+    const { data } = await Axios.get(`${baseURL}/api/categories`);
     return dispatch({
       type: CATEGORY_LIST_SUCCESS,
       payload: data,
@@ -163,7 +164,7 @@ export const listProducts = async (dispatch, categoryName = '') => {
 export const createOrder = async (dispatch, order) => {
   dispatch({ type: ORDER_CREATE_REQUEST });
   try {
-    const { data } = await Axios.post('/api/orders', order);
+    const { data } = await Axios.post(`${baseURL}/api/orders`, order);
     
     dispatch({
       type: ORDER_CREATE_SUCCESS,
@@ -217,7 +218,7 @@ export const removeFromOrder = async (dispatch, item) => {
 export const listQueue = async (dispatch) => {
   dispatch({ type: ORDER_QUEUE_LIST_REQUEST });
   try {
-    const { data } = await Axios.get(`/api/orders/queue`);
+    const { data } = await Axios.get(`${baseURL}/api/orders/queue`);
     dispatch({ type: SCREEN_SET_WIDTH });
     return dispatch({
       type: ORDER_QUEUE_LIST_SUCCESS,
@@ -234,7 +235,7 @@ export const listQueue = async (dispatch) => {
 export const listOrders = async (dispatch) => {
   dispatch({ type: ORDER_LIST_REQUEST });
   try {
-    const { data } = await Axios.get(`/api/orders`);
+    const { data } = await Axios.get(`${baseURL}/api/orders`);
     dispatch({ type: SCREEN_SET_WIDTH });
     return dispatch({
       type: ORDER_LIST_SUCCESS,
